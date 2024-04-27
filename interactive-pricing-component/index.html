@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  
+  <title>Interactive pricing component</title>
+
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      box-sizing: border-box;
+    }
+    p,span{
+      font-size: 15px;
+      color: hsl(225, 20%, 60%);
+    }
+    .heading{
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .para{
+      font-size: 15px;  
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url(images/bg-pattern.svg);
+      background-size: 100%;
+      background-repeat: no-repeat; 
+    }
+    .content{
+      width: 500px;
+      height: auto; 
+    }
+    .content-head{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      position: relative;
+    }
+    .bg{
+      position: absolute;
+      top: -50px;  
+    }
+    .content-item{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px;
+      margin-top: 60px;
+      background-color: hsl(0, 0%, 100%);
+    }
+    .pricing-item{
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         gap: 20px;   
+    }
+    .pricing{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .price-para{
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+    h1{
+      display: flex;
+     gap: 10px;
+      align-items: center;
+    }
+    h1 span{
+       font-weight: 200; 
+    }
+    .biling{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .yearly::after{
+      content: '20% discount';
+      background-color: hsl(14, 92%, 95%);
+      color: hsl(15, 100%, 70%);
+      margin-left: 20px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    /* check box toggle */
+    .switch{
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+      .slider:hover{
+        background-color: #2196F3;
+      }
+      .switch input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 20px;
+      }
+      .slider::before{
+        position: absolute;
+        content: '';
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+      }
+      input:checked + .slider{
+        background-color: #2196F3;
+      }
+      input:focus + .slider{
+        box-shadow: 0 0 1px  #2196F3;
+      }
+      input:checked + .slider::before{
+        transform: translateX(26px);
+      }
+    .feature{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .feature-left{
+     display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feature-left-item{
+      display: flex;
+      gap: 10px;
+    }
+    .feature-left-item img{
+      width: 15px;
+    }
+    .feature-right-item button{
+      padding: 10px 25px;
+      background-color:  hsl(227, 35%, 25%);
+      color: hsl(226, 100%, 87%);
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+    .feature-right-item button:hover{
+      color: white;
+    }
+
+    @media(max-width:430px){
+      .container{
+        background-size: 100% 100%; 
+      }
+      .content{
+        width: 100%;
+        padding: 20px;
+      }
+      .content-item{
+       padding: 20px;
+      }
+      .pricing{
+        flex-direction: column;
+        gap: 10px;  
+      }
+      .yearly::after{
+      content: '-25%';
+    }
+
+    .feature{
+      flex-direction: column;
+      gap: 40px;
+    }
+    
+    }
+
+    @media(max-width:320px){
+      .container{
+        height: auto;
+      }
+      .content-item{
+        padding: 0px;
+      }
+      .heading{
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .para{
+      font-size: 16px; 
+    }
+      .biling{
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .biling p{
+      font-size: 12px;
+    }
+    .yearly::after{
+      background-color: hsl(14, 92%, 95%);
+      color: hsl(15, 100%, 70%);
+      margin-left: 10px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    }
+  
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+      <div class="content-head">
+        <h2 class="heading"> Simple, traffic-based pricing</h2>
+        <p class="para"> Sign-up for our 30-day trial. No credit card required. </p>
+        <img src="images/pattern-circles.svg" class="bg">
+      </div>
+      <div class="content-item">
+        <div class="pricing-item">
+        <div class="pricing">
+          <p class="price-para">100k  Pageviews</p>
+          <h1>$16.00 <span>/month</span></h1>
+        </div>
+        <input type="range" min="0" max="100" value="50" class="range-slider">
+      </div>
+        
+        <div class="biling">
+          <p>Monthly Billing</p>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+          <p class="yearly">Yearly Billing </p>
+      </div>
+        <div class="feature">
+          <div class="feature-left">
+            <div class="feature-left-item">
+              <img src="images/icon-check.svg" alt="">
+              <p class="para">Unlimited websites</p>
+            </div>
+            <div class="feature-left-item">
+              <img src="images/icon-check.svg" alt="">
+              <p class="para">100% data ownership</p>
+            </div>
+            <div class="feature-left-item">
+              <img src="images/icon-check.svg" alt="">
+              <p class="para">UEmail reports</p>
+            </div>
+          </div>
+          <div class="feature-right-item">
+            <button class="btn">Start my trial</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</body>
+</html>

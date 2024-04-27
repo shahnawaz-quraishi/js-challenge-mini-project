@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  
+  <title>Project tracking intro component</title>
+  <style>
+    
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      list-style: none;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .heading{
+      font-size: 48px;
+      text-transform: uppercase;
+      color: hsl(230, 29%, 20%);
+    }
+    .para{
+      font-size: 18px;
+      width: 50%;
+    }
+    li a{
+      color: hsl(230, 29%, 20%);
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .btn{
+      padding: 10px 20px;
+      color: white;
+      text-transform: uppercase;
+      background-color: hsl(0, 100%, 68%);
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn:hover{
+      filter: brightness(120%);
+    }
+    .container{
+      padding: 30px 100px;
+    }
+    .header-content{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav{
+      display: flex;
+      gap: 40px;
+    }
+    .mob-nav{
+      display: flex;
+    }
+    main{
+      width: 100%;
+    }
+    main .container{
+      padding-right: 0;
+    }
+    .main-content{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .main-left{
+      width: 55%;
+     display: flex;
+     flex-direction: column;
+     gap: 30px;
+    }
+    .main-right{
+      width: 960px;  
+    }
+    .main-right img{
+      width: 100%;
+    }
+   .main-right svg{
+      width: 100%;
+    }
+    .main-top{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .main-bottom{
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+      align-items: center;
+    }
+    .new{
+      padding: 3px 10px;
+      background-color: hsl(230, 29%, 20%);
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .top-p{
+      text-transform: uppercase;
+      word-spacing: 5px;
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+    .mob-nav{
+      display: none;
+    }
+
+    @media(max-width:430px){
+      .container{
+        padding: 30px 20px;
+      }
+      .para{
+        width: 100%;
+      }
+      .heading{
+        font-size: 20px;
+      }
+      nav{
+        opacity: 0;
+        visibility: none;
+        overflow: hidden;
+        top: 0;
+      }
+     .active nav{
+        flex-direction: column;
+        position: absolute;
+        background-color: rgb(214, 208, 208);
+        width: 91%;
+        top: 90px;
+        align-items: center;
+        gap: 25px;
+        padding: 20px 0;
+        opacity: 1;
+        visibility: none;
+        overflow: auto;
+        transition: all .3s linear;
+      }
+      .mob-nav{
+        display: block;
+      }
+      .x{
+        display: none;
+      }
+      .active .bar{
+        display: none;
+      }
+      .active .x{
+        display: block;
+      }
+      .main-content{
+        flex-direction: column;
+        gap: 30px;
+      }
+      .main-left{
+        width: 100%;
+      }
+      .main-right{
+        width: 100%;
+        order: -1;
+      }
+      .main-right img{
+        width: 100%;
+      }
+      .main-right svg{
+        width: 100%;
+       
+      }
+      main .container{
+        padding-right: 20px; 
+      }
+      .main-bottom{
+        gap: 10px;
+      }
+      .btn{
+        padding: 10px 15px;
+        font-size: 12px;
+      }
+      .p{
+        font-size: 14px;
+        word-spacing: normal;
+        letter-spacing: normal;
+      }
+    }
+
+    @media(max-width:375px){
+      .active nav{
+        width: 91%;
+        top: 70px;
+      }
+    }
+
+    @media(max-width:360px){
+      .active nav{
+        width: 90%;
+        top: 90px;
+        gap: 15px;
+        padding: 15px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- header start -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><g fill="#323334" fill-rule="evenodd"><path d="M0 32V.241h23.041zM31.15 32V.241h-4.411L17.48 13.158zM3.645 32l11.854-15.879L27.353 32z"/></g></svg>
+        </div>
+        <nav>
+          <li><a href="">Product</a></li>
+          <li><a href="">Features</a></li>
+          <li><a href="">Pricing</a></li>
+          <li><a href="">.</a></li>
+          <li><a href="">Login</a></li>
+        </nav>
+        <div class="mob-nav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16"><g fill="#242942" fill-rule="evenodd"><path class="bar" d="M0 0h24v2H0zM0 7h24v2H0zM0 14h24v2H0z"/></g></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path class="x" fill="#242942" fill-rule="evenodd" d="M17.778.808l1.414 1.414L11.414 10l7.778 7.778-1.414 1.414L10 11.414l-7.778 7.778-1.414-1.414L8.586 10 .808 2.222 2.222.808 10 8.586 17.778.808z"/></svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- header end -->
+
+  <!-- main start -->
+  <main>
+    <div class="container">
+      <div class="main-content">
+        <div class="main-left">
+           <div class="main-top">
+            <span class="new">NEW</span>
+            <p class="top-p">Monograph Dashboard</p>
+          </div>
+            <h1 class="heading"> Powerful insights into your team</h1>
+            <p class="para">Project planning and time tracking for agile teams</p>
+            <div class="main-bottom">
+              <button class="btn">Schedule a demo</button>
+              <p class="top-p p"> to see a live preview</p>
+            </div> 
+        </div>
+       
+        <div class="main-right">
+          <img src="images/illustration-devices.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const header = document.querySelector('.header-content');
+    const btn = document.querySelector('.mob-nav');
+
+    btn.addEventListener('click', () =>{
+      header.classList.toggle('active');
+    })
+  </script>
+</body>
+</html>

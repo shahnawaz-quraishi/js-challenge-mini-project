@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <title>Sunnyside agency landing page</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 18px;
+      list-style: none;
+      text-decoration: none;
+    }
+    .main-heading{
+      text-align: center;
+      font-size: 40px;
+      font-weight: 900;
+      color: hsl(0, 0%, 100%);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+    .heading{
+      font-size: 24px;
+      font-weight: 900;
+    }
+    .arrow-img{
+      text-align: center;
+    }
+    .arrow{ 
+      width: 20px;
+      height: 95px;
+    }
+    .para{
+      font-size: 18px;
+    }
+    .container{
+      padding: 20px;
+    }
+    .header-flex{
+      display: flex;
+      flex-direction: column;
+      gap: 90px;  
+    }
+    header{
+      background-image: url(images/desktop/image-header.jpg);
+      background-size: 100% 100%;
+      height: 100vh;  
+    }
+    .header-content{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;  
+    }
+    nav{
+      display: flex;
+    }
+    li a{
+      padding: 0 30px;
+      color: hsl(0, 0%, 100%);
+    }
+    .link-4{
+      background-color: hsl(0, 0%, 100%);
+      color: black;
+      padding: 10px 20px;
+      border-radius: 15px;
+    }
+    .link-4:hover{
+      background-color: rgba(0, 255, 255, 0.432);
+      color: white;
+    }
+    .navbar{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .navbar .mob-nav{
+        display: none;
+        cursor: pointer;
+    }
+    .mob-nav i{
+      font-size: 40px;
+    }
+    .gelery-content{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .gelery-content-item{
+      width: 50%;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;   
+    }
+    .item-1 .para{
+      color: hsl(232, 10%, 55%)
+    }
+     .item-4 .para{
+      color: hsl(232, 10%, 55%)
+    }
+    .item-5,.item-6{
+      align-items: end;
+      text-align: center;
+    }
+    .gelery-text{
+      width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .text-3,.text-4{
+      width: 350px;
+      margin-bottom: 50px;  
+    }
+    .text-3{
+      color: hsl(167, 40%, 24%);
+    }
+    .text-4{
+      color: hsl(198, 62%, 26%);
+    }
+    .gelery-link{
+      font-weight: 800;
+      text-transform: uppercase;
+      color: black;
+      position: relative;  
+    }
+    .gelery-link::after{
+      content: '';
+      width: 130px;
+      height: 10px;
+      background-color: hsl(51, 100%, 49%);
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      border-radius: 10px;
+      z-index: -1;   
+    }
+    .gelery-link-2::after{
+      background-color: hsl(7, 99%, 70%);;
+    }
+    .item-2{
+      background-image: url(images/desktop/image-transform.jpg);
+      background-size: cover;
+    }
+    .item-3{
+      background-image: url(images/desktop/image-stand-out.jpg);
+      background-size: cover;
+    }
+    .item-5{
+      background-image: url(images/desktop/image-graphic-design.jpg);
+      background-size: cover;
+    }
+    .item-6{
+      background-image: url(images/desktop/image-photography.jpg);
+      background-size: cover;
+    }
+    .testimonials{
+      padding: 100px;
+    }
+    .testimonials .container{
+      padding: 0;
+    }
+    h3{
+      margin-bottom: 50px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: hsl(210, 4%, 67%); 
+      font-weight: 600;
+    }
+    .testimonials-content{
+      display: flex;  
+      gap: 30px;   
+    }
+    .testimonials-item{
+       display: flex;
+       align-items: center;
+       text-align: center;
+       flex-direction: column;
+       gap: 50px;
+    }
+    .testimonials-item img{
+      width: 50px;
+      border-radius: 50%;
+    }
+    .testimonials-item .para,.post{
+    
+     color: hsl(212, 27%, 19%);
+    }
+    .people-info{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    h4{
+      color: hsl(212, 27%, 19%);
+      font-weight: 900;
+    }
+    .post{
+      font-size: 14px;
+      color: hsl(232, 10%, 55%);
+    }
+    .image{
+      display: flex;
+    }
+    .image img{
+      width: 25%;
+    }
+    footer{
+      padding: 100px;
+      background-color: rgba(0, 255, 255, 0.438);  
+    }
+    .footer-content{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;  
+      align-items: center;
+      justify-content: center;
+    }
+    footer .link{
+      display: flex;
+      gap: 20px;  
+    }
+    footer .link li a{
+      color: hsl(168, 34%, 41%);
+    }
+    footer .link li a:hover{
+      color: white;
+    }
+    .social-link{
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .social-link img{
+      width: 20px;
+      cursor: pointer;
+    }
+    .social-link img:hover{
+      color: white;
+    }
+
+    @media(max-width:430px){
+
+     
+      nav{
+        display: flex;
+        flex-direction: column;
+        background-color: hsl(0, 0%, 100%);
+        width: 90%;
+        padding: 30px;
+        margin: 0 5%; 
+        align-items: center;
+        position: absolute;
+        top: 100px;
+        left: 50px;
+        visibility: none;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.3s linear;
+      }
+      .active nav{
+        visibility: visible;
+        opacity: 1;
+        overflow: auto;
+        left: 0;
+      }
+       li a{
+        display: inline-block;
+        padding: 20px 0;
+        color: hsl(232, 10%, 55%);    
+      }
+      .link-4{
+        background-color: hsl(51, 100%, 49%);
+        padding: 10px 30px;
+      }
+      .header-flex{
+      gap: 90px;    
+    }
+    header{  
+      background-image: url(images/mobile/image-header.jpg);
+      background-size: 100% 100%;
+      height: 65vh;
+      background-repeat: no-repeat;     
+    }
+   .navbar .mob-nav{
+      display: block;
+      color: hsl(0, 0%, 100%);
+    }
+    .gelery-content{ 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .gelery-content-item{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+  }
+  .item-1{
+    order: 2;
+  }
+ .item-2{
+      background-image: url(images/mobile/image-transform.jpg);
+      background-size: 100% 100%;
+      height: 300px;
+      order: 1;
+      padding: 0;
+    }
+    .item-3{
+      background-image: url(images/desktop/image-stand-out.jpg);
+      background-size: 100% 100%;
+      height: 300px;
+      order: 3;
+    }
+    .item-4{
+      order: 4;
+    }
+    .item-5{
+      background-image: url(images/mobile/image-graphic-design.jpg);
+      background-size: 100% 100%;
+      height: 500px;
+      order: 5;
+    }
+    .item-6{
+      background-image: url(images/mobile/image-photography.jpg);
+      background-size: 100% 100%;
+      height: 500px;
+      order: 6;
+    }
+    .item-5,.item-6{
+      align-items: end;
+      text-align: center;
+    }
+    .text-1,.text-2{
+      padding: 0 10px;
+      text-align: center;
+      align-items: center;
+    }
+    .text-1,.text-2 .para{
+      line-height: 30px;
+      word-spacing: 2px;
+    }  
+    .text-3,.text-4{
+      width: 350px;
+      margin-bottom: 50px; 
+    }
+    .testimonials{
+      padding: 100px 20px;
+    }
+    .testimonials-content{
+      display: flex;
+      flex-direction: column;
+      gap: 50px;   
+    }
+    .testimonials-item{
+      width: 100%;
+       display: flex;
+       align-items: center;
+       text-align: center;
+       flex-direction: column;
+       gap: 30px;
+    }
+    .testimonials-item img{
+      width: 70px;
+      border-radius: 50%;
+    }
+     footer{
+      padding: 50px 20px;
+     }
+
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <!-- header start -->
+  <header>
+    <div class="container header-flex">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/logo.svg" alt="">
+        </div>
+        <div class="navbar">
+         
+        <nav>
+          <li><a href="">About</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">Projects</a></li>
+          <li><a href="" class="link-4">Contact</a></li>
+        </nav>
+        <div class="mob-nav">
+          <i class="bi bi-list icon"></i>
+        </div>
+      </div>
+      </div>
+      <h1 class="main-heading">We are creatives</h1>
+      <div class="arrow-img">
+      <img src="images/icon-arrow-down.svg" class="arrow">
+    </div>
+    </div>
+  </header>
+    <!-- header end -->
+
+    <!-- gelery start -->
+  <section class="gelery">
+    <div class="container">
+      <div class="gelery-content">
+        <div class="gelery-content-item item-1">
+          <div class="gelery-text text-1">
+          <h2 class="heading">Transform your brand</h2>
+          <p class="para"> We are a full-service creative agency specializing in helping brands grow fast. 
+            Engage your clients through compelling visuals that do most of the marketing for you.</p>
+            <a href="" class="gelery-link gelery-link-1">Learn more</a>
+          </div>
+        </div>
+
+        <div class="gelery-content-item item-2">
+         
+        </div>
+
+        <div class="gelery-content-item item-3">
+           
+        </div>
+
+        <div class="gelery-content-item item-4">
+          <div class="gelery-text text-2">
+          <h2 class="heading"> Stand out to the right audience</h2>
+          <p class="para"> Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places.</p>
+            <a href="" class="gelery-link gelery-link-2">Learn more</a>
+          </div>
+        </div>
+
+        <div class="gelery-content-item item-5">
+          <div class="gelery-text text-3">
+          <h2 class="heading">Graphic design</h2>
+          <p class="para">  Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
+        </div>
+        </div>
+
+        <div class="gelery-content-item item-6">
+          <div class="gelery-text text-4">
+          <h2 class="heading">Photography</h2>
+          <p class="para"> Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- gelery end -->
+
+  <!-- testimonials start -->
+  <section class="testimonials">
+    <div class="container">
+      <h3 class="sub-heading"> Client testimonials</h3>
+      <div class="testimonials-content">
+        <div class="testimonials-item">
+          <img src="images/image-emily.jpg" alt="">
+          <p class="para"> We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.</p>
+          <div class="people-info">
+            <h4> Emily R.</h4>
+            <p class="post">Marketing Director</p>
+          </div>
+        </div>
+
+        <div class="testimonials-item">
+          <img src="images/image-thomas.jpg" alt="">
+          <p class="para">Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.</p>
+          <div class="people-info">
+            <h4> Thomas S.</h4>
+            <p class="post"> Chief Operating Officer</p>
+          </div>
+        </div>
+
+        <div class="testimonials-item">
+          <img src="images/image-jennie.jpg" alt="">
+          <p class="para"> Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!</p>
+          <div class="people-info">
+            <h4>Jennie F.</h4>
+            <p class="post">  Business Owner</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- testimonials end -->
+
+  <!-- image start -->
+  <section class="image">
+   <img src="images/desktop/image-gallery-milkbottles.jpg" alt="">
+   <img src="images/desktop/image-gallery-orange.jpg" alt="">
+   <img src="images/desktop/image-gallery-cone.jpg" alt="">
+   <img src="images/desktop/image-gallery-sugarcubes.jpg" alt="">
+  </section>
+   <!-- image end -->
+
+   <!-- footer start -->
+  <footer>
+    <div class="footer-content">
+      <div class="logo">
+        <img src="images/logo.svg" fill="#458c7e">
+      </div>
+      <div class="link">
+        <li><a href="">About</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="">Projects</a></li>
+      </div>
+      <div class="social-link">
+        <img src="images/icon-facebook.svg" alt="">
+        <img src="images/icon-instagram.svg" alt="">
+        <img src="images/icon-twitter.svg" alt="">
+        <img src="images/icon-pinterest.svg" alt="">
+      </div>
+    </div>
+  </footer>
+  <!-- footer end -->
+
+  <script>
+    const btn = document.querySelector('.icon');
+    const header = document.querySelector('header');
+    btn.addEventListener('click', () => {
+         header.classList.toggle('active');
+    })
+  </script>
+</body>
+</html>

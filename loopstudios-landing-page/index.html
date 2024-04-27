@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <title> Loopstudios landing page</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+    }
+    .main-heading{
+      font-size: 48px;
+      font-weight: 500;
+    }
+    .heading{
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      word-spacing: 5px;
+      text-transform: uppercase;
+      color: hsl(0, 0%, 0%);
+    }
+    .para{
+      font-size: 16px;
+      margin-top: 20px;
+      color: hsl(0, 0%, 41%);
+    }
+    a{
+      font-size: 18px;
+      color: hsl(0, 0%, 100%);
+    }
+    .container{
+      padding: 100px;
+    }
+    .header-container{
+      padding: 50px 100px;
+    }
+    header{
+      background-image: url(images/desktop/image-hero.jpg);
+      background-size: 100% 100%;
+      height: auto;
+    }
+    h1{
+      width:300px;
+      margin: 80px 0;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      color: hsl(0, 0%, 100%);
+      border: 1px solid white;
+    }
+    .header-content{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav{
+      display: flex;
+      position: relative;  
+    }
+    nav li a{
+      padding-inline: 10px;
+    }
+    nav li a:hover:before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 2px;
+      background-color: white;
+      bottom: 0;      
+    }
+    .navbar{
+      display: flex;
+      align-items: center;
+    }
+    .mob-nav{
+      display: none;
+    }
+    .mob-nav i{
+      font-size: 30px;
+      color: white;
+    }
+    .interactive-content{
+      display: flex;
+      position: relative;
+    }
+    .interactive-left{
+      width: 73%;
+      height: 400px;
+      background-image: url(images/desktop/image-interactive.jpg);
+      background-size: 100% 100%;
+    }
+    .interactive-right{
+      width: 42%;
+      padding: 100px;
+      padding-right: 0;
+      padding-bottom: 0;
+      background-color: hsl(0, 0%, 100%);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    .interactive-right .para{
+      font-size: 15px;
+    }
+    .creations-content{
+       display: flex;
+       flex-direction: column;
+       gap: 40px;
+    }
+    .creatons-heading{
+       display: flex;
+       justify-content: space-between;
+    }
+    .creations-info{
+       display: grid;
+       grid-template-columns: repeat(4,1fr);
+       gap: 20px;
+    }
+    .creation-item{
+       height: 300px;
+       padding: 10px;
+       display: flex;
+       align-items: end;
+       justify-content: end;
+       background-size: 100% 100%;
+       border-radius: 15px;
+       cursor: pointer;
+       color: white;   
+    }
+    .creation-item:hover{
+      opacity: 0.5;   
+    }
+    .creation-item h3{
+      font-weight: 500;
+      font-size: 20px;
+    }
+    .btn{
+      padding: 10px 25px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      word-spacing: 5px;
+      color: hsl(0, 0%, 0%);
+      border: 1px solid hsl(0, 0%, 0%);
+      font-weight: 600;
+      border-radius: 5px;
+    }
+    .btn:hover{
+       background-color: black;
+       color: white;
+    }
+    .item-1{
+      background-image: url(images/desktop/image-deep-earth.jpg);
+    }
+    .item-2{
+      background-image: url(images/desktop/image-night-arcade.jpg);
+    }
+    .item-3{
+      background-image: url(images/desktop/image-soccer-team.jpg);
+    }
+    .item-4{
+      background-image: url(images/desktop/image-grid.jpg);
+    }
+    .item-5{
+      background-image: url(images/desktop/image-from-above.jpg);
+    }
+    .item-6{
+      background-image: url(images/desktop/image-pocket-borealis.jpg);
+    }
+    .item-7{
+       background-image: url(images/desktop/image-curiosity.jpg); 
+    }
+    .item-8{
+      background-image: url(images/desktop/image-fisheye.jpg);
+    }
+    footer{
+      padding: 30px 100px;
+      background-color: black;
+      color: white;
+    }
+    .footer-content{
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+    }
+    .footer-top{
+      display: flex;
+      justify-content: space-between;
+    }
+    .social-link{
+      display: flex;
+      gap: 10px;
+      position: relative;
+    }
+    .social-link li a{
+      width: auto;
+    }
+    .social-link li a:hover:before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 2px;
+      background-color: white;
+      bottom: 0px;    
+    }
+    .footer-bottom{
+      display: flex;
+      justify-content: space-between;
+    }
+    .link{
+      display: flex;
+      gap: 30px;
+      position: relative;    
+    }
+    .link li a{
+      color: white;
+    }
+    .link li a:hover:before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 2px;
+      background-color: white;
+      bottom: -10px;     
+    }
+    .footer-p{    
+      color:hsl(0, 0%, 55%) ;
+    }
+
+    @media(max-width:430px){
+
+      .container{
+        padding: 25px;
+        margin-top: 60px;    
+      }
+      .header-container{
+      padding: 30px 25px;   
+    }
+    header{
+     background-image: url(images/mobile/image-hero.jpg);
+     height: 75vh;
+    }
+    .header-content{
+    position: relative;
+    }
+    .header-info{
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+      transition: all 0.3s linear;
+    }
+    .active .header-info{
+      position: absolute;
+     background-color: black;
+     height: 100vh;
+     width: 100%;
+     top: 0;
+     left: 0;
+     padding: 40px;
+    }
+   .active .main-heading{
+      display: none;
+    }
+    .main-heading{
+     width: 100%;
+     font-size: 50px;
+    
+    }
+    nav{
+    display: none;
+    }
+    .active  nav{
+       display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 150px;
+        order: 2;
+
+      }
+     .active nav li a{
+        display: inline-block;
+        padding: 10px 0;
+        font-size: 25px;
+       
+      }
+      .mob-nav{
+        display: block;
+        
+      }
+         .x{
+      display: none;
+    }
+    .bar{
+      display: block;
+    }
+    .active .x{
+      display: block;
+    }
+    .active .bar{
+      display: none;
+    }
+      .interactive-content{
+        flex-direction: column;
+      }     
+      .interactive-left{
+        width: 100%;
+        height: 300px;
+      }
+      .interactive-right{
+        position: static;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+      }
+      .interactive-right .para{
+      font-size: 18px;
+      word-spacing: 5px;
+      line-height: 30px;
+    }
+    .creations-content{
+      position: relative;
+    }
+    .creatons-heading{ 
+     justify-content: center; 
+    }
+    .creatons-heading .btn{
+      position: absolute;
+      bottom: 50px;  
+    }
+    .creations-info{
+       grid-template-columns: repeat(1,1fr);
+       margin-bottom: 120px;
+    }
+    .creation-item{
+      height: 150px;
+       justify-content: start;
+       align-items: center;
+    }
+    .creation-item h3{
+      width: 150px;
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 100;
+    }
+    .item-1{
+      background-image: url(images/mobile/image-deep-earth.jpg);
+    }
+    .item-2{
+      background-image: url(images/mobile/image-night-arcade.jpg);   
+    }
+    .item-3{
+     background-image: url(images/mobile/image-soccer-team.jpg);
+    }
+    .item-4{
+      background-image: url(images/mobile/image-grid.jpg);
+    }
+    .item-5{
+      background-image: url(images/mobile/image-from-above.jpg);
+    }
+    .item-6{
+     background-image: url(images/mobile/image-pocket-borealis.jpg);
+    }
+    .item-7{
+       background-image: url(images/mobile/image-curiosity.jpg);
+    }
+    .item-8{
+      background-image: url(images/mobile/image-fisheye.jpg);
+    }
+    footer{
+      padding: 50px 40px;
+    }
+    .footer-content{
+      align-items: center;
+     gap: 30px;
+      text-align: center;
+    }
+    .footer-top{
+      flex-direction: column;
+      gap: 30px;
+    }
+    .footer-bottom{
+      flex-direction: column;
+      gap: 30px;
+    }
+    .footer-content .link{
+      flex-direction: column;
+      gap: 20px;   
+    }   
+    .social-link{
+      justify-content: center;    
+    }
+   
+    }
+
+    @media(max-width:320px){
+      .container{
+        padding: 30px 10px;
+      }
+      .header-info{
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      transition: all 0.3s linear;
+    }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- header start -->
+  <header>
+    <div class="header-container">
+      <div class="header-info">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/logo.svg" class="logo">
+        </div>
+        <div class="navbar">
+        <nav>
+          <li><a href="">About</a></li>
+          <li><a href="">Careers</a></li>
+          <li><a href="">Events</a></li>
+          <li><a href="">Products</a></li>
+          <li><a href="">Support</a></li>
+        </nav>
+        <div class="mob-nav">
+          <i class="bi bi-justify bar"></i>
+          <i class="bi bi-x-lg x"></i>
+        </div>
+      </div>
+      </div>
+      <h1 class="main-heading">Immersive experiences that deliver</h1>
+    </div>
+    </div>
+  </header>
+  <!-- Header End -->
+
+  <!-- interactive section start -->
+  <section class="interactive">
+    <div class="container">
+      <div class="interactive-content">
+        <div class="interactive-left">
+            
+        </div>
+        <div class="interactive-right">
+             <h2 class="heading">The leader in interactive VR</h2>
+             <p class="para"> Founded in 2011, Loopstudios has been producing world-class virtual reality 
+              projects for some of the best companies around the globe. Our award-winning 
+              creations have transformed businesses through digital experiences that bind 
+              to their brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- interactive section end -->
+
+  <!-- creations section start -->
+  <section class="creations">
+    <div class="container">
+      <div class="creations-content">
+        <div class="creatons-heading">
+          <h2 class="heading">Our creations</h2>
+          <button class="btn">See all</button>
+        </div>
+
+        <div class="creations-info">
+          <div class="creation-item item-1">
+             <h3>Deep earth</h3>
+          </div>
+          <div class="creation-item item-2">
+            <h3> Night arcade</h3>
+         </div>
+         <div class="creation-item item-3">
+          <h3>Soccer team VR</h3>
+       </div>
+       <div class="creation-item item-4">
+        <h3>The grid</h3>
+     </div>
+     <div class="creation-item item-5">
+      <h3>From up above VR</h3>
+   </div>
+   <div class="creation-item item-6">
+     <h3>Pocket borealis</h3>
+  </div>
+  <div class="creation-item item-7">
+   <h3>  The curiosity</h3>
+</div>
+<div class="creation-item item-8">
+ <h3>  Make it fisheye</h3>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- creations section end -->
+
+  <!-- footer start -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="logo">
+          <img src="images/logo.svg" alt="">
+        </div>
+        <div class="social-link">
+          <li><a href=""><img src="images/icon-facebook.svg" alt=""></a></li>
+          <li><a href=""><img src="images/icon-twitter.svg" alt=""></a></li>
+          <li><a href=""><img src="images/icon-pinterest.svg" alt=""></a></li>
+          <li><a href=""><img src="images/icon-instagram.svg" alt=""></a></li>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="link">
+          <li><a href="">About</a></li>
+          <li><a href=""> Careers</a></li>
+          <li><a href="">Events</a></li>
+          <li><a href="">Products</a></li>
+          <li><a href="">Support</a></li>
+        </div>
+        <div class="sub-footer">
+          <p class="footer-p">© 2021 Loopstudios. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer end -->
+
+  <script>
+    const btn = document.querySelector('.mob-nav');
+    const header = document.querySelector('header');
+
+    btn.addEventListener('click', () => {
+      header.classList.toggle('active');
+      // console.log('hi')
+        })
+  </script>
+</body>
+</html>

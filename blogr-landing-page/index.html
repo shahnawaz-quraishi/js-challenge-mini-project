@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  
+  <title>Bloger Landing Page</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+    .main-heading{
+      font-size: 32px;
+      color:  hsl(0, 0%, 100%);
+    }
+    .heading{
+      font-size: 24px;
+      color: hsl(208, 49%, 24%);
+    }
+    .sub-heading{
+      font-size: 20px;
+      color: hsl(208, 49%, 24%);
+    }
+    .para{
+      font-size: 16px;
+      margin-top: 10px;
+      color: hsl(207, 13%, 34%);
+      font-weight: 100;
+      line-height: 22px;
+      word-spacing: 2px;
+    }
+    .btn{
+      display: inline-block;
+      text-align: center;
+     width: 120px;
+     padding: 8px 5px;
+     border-radius: 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-1{
+      background-color: hsl(0, 0%, 100%);
+      color: hsl(356, 100%, 66%);
+    }
+    .btn-1:hover{
+      background-color: hsl(355, 100%, 74%);
+      color: hsl(0, 0%, 100%);
+    }
+    .btn-2{
+      background-color: hsl(356, 100%, 66%);
+      color: hsl(0, 0%, 100%);
+      border: 1px solid hsl(0, 0%, 100%);
+    }
+    .btn-2:hover{
+      background-color: hsl(0, 0%, 100%);
+      color: hsl(356, 100%, 66%);
+    }
+    li{
+      font-size: 16px;
+      color:rgba(250, 247, 247, 0.671);
+      font-weight: 100;
+    }
+    a{
+      font-size: 14px;
+    }
+    .header-container{
+      padding: 20px 100px;
+    }
+    .container{
+      padding: 50px 100px;
+    }
+    header{
+    background-image: linear-gradient( to bottom, hsl(13, 100%, 72%),hsl(353, 100%, 62%)),url(images/bg-pattern-intro-desktop.svg);
+    width: 100%; 
+    }
+    .header-content{ 
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .navbar{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center; 
+    }
+    nav{
+      display: flex;
+      gap: 30px; 
+    }
+
+    nav li{
+      padding: 0 20px;
+      cursor: pointer; 
+    }
+    nav li:hover::before{
+      position: absolute;
+      content: '';
+      width: 50%;
+      height: 1px;
+      bottom:  0px;
+      left: 22px;
+      background-color: white;
+    }
+    li .arrow{
+      padding-left: 5px;
+    }
+    .nav-link{
+      position: relative;
+    }
+    .link-content{
+      position: absolute;
+      opacity: 0;
+      overflow: hidden;
+      visibility: none;
+      top: -50px; 
+      transition: all 1s linear;
+    }
+  .nav-link:hover .link-content{
+      position: absolute;
+      top: 30px;
+      left: 0;
+     display: flex;
+     flex-direction: column;
+     padding: 20px 20px;
+     padding-right: 40px;
+     gap: 10px;
+     background-color: hsl(0, 0%, 100%);
+     border-radius: 10px;
+     opacity: 1;
+     overflow: auto;
+     visibility: visible;  
+    }
+    .link-item a{
+      font-size: 15px;
+      color: black;
+      text-align: center;
+    }
+    .link-item a:hover{
+      color: gray;
+    }
+    .nav-link:hover .arrow{
+      transform: rotate(180deg);
+    }
+    .signup{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .login-a{
+      color:rgba(250, 247, 247, 0.671);
+      font-size: 16px;
+    }
+    .mob-nav{
+      display: none;
+    }
+    .main-content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .main-btn{
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+    main .para{
+    color:rgba(250, 247, 247, 0.671);
+    margin-top: 15px;
+    }
+    .designed{
+     width: 100%;
+     height: auto;
+    }
+    .designed h2{
+      text-align: end;
+    }
+    .designed-content{
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      padding: 20px 20px;
+    }
+    .designed-left{
+      width: 65%;
+      display: flex;
+      flex-direction: column;
+      gap: 50px; 
+    }
+    .designed-left-1,.designed-left-2{
+      padding: 0 180px;
+    }
+    .designed-right{
+      background-image: url(images/illustration-editor-desktop.svg);
+      height: 620px;
+      width: 35%;
+      background-size: cover;   
+    }
+    .mobile{
+      padding: 50px 0;
+    }
+  .mobile-content{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  border-top-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+  background-image: linear-gradient(hsl(237, 17%, 21%),hsl(237, 23%, 32%));
+  }
+  .mobile-left{
+    width: 20%;
+    background-image: url(images/illustration-phones.svg);
+    height: 300px;
+    background-size: 100% 100%;
+    margin: 0 50px;
+    position: absolute;
+    left: 0;
+  }
+  .mobile-right{
+    padding: 50px 0;
+    width: 50%;
+    margin-left: 350px;
+  }
+  .mobile-right .heading{
+    color: white;
+  }
+  .mobile-right .para{
+    color: rgba(255, 255, 255, 0.521);
+  }
+  .laptop-content{
+     width: 100%;
+     height: auto;
+     display: flex;
+     align-items: center;
+     padding: 50px 0;
+  }
+  .laptop-left{
+    background-image: url(images/illustration-laptop-desktop.svg);
+    width: 38%;
+    height: 600px;
+    background-size: cover;
+    background-position: right;
+  }
+  .laptop-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-inline: 80px;
+  }
+  footer{
+    background-color: hsl(240, 10%, 16%);
+    border-top-right-radius: 100px;
+  }
+  .footer-content{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   padding: 20px 100px;
+   padding-right: 300px; 
+  }
+  .footer-item{
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+  } 
+  .footer-item p{
+    color: white;
+  }
+  .footer-link li a{
+    display: inline-block;
+    padding: 10px 0;
+    color: hsl(240, 2%, 79%);
+    position: relative;  
+  }
+  .footer-link li a:hover{
+    color: gray;
+  }
+  .footer-link li a:hover:before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    bottom: 10px;
+  }
+
+  @media(max-width:430px){
+
+    .container{
+      padding: 50px 62px;
+    }
+    .header-container{
+      padding: 40px 20px;
+    }
+    .header-content{
+      justify-content: space-between;  
+    }
+    .navbar{
+      justify-content: space-between; 
+      gap: 50px;
+      flex-direction: column;
+      position: absolute;
+      background-color: green;
+      width: 90%;
+      padding: 44.5px;
+      top: 200px;
+      opacity: 0;
+      visibility: none;
+      overflow: hidden;
+      transition: all .3s linear;
+    }
+    .active .navbar{
+      opacity: 1;
+      visibility: visible;
+      overflow: auto;
+      top: 100px;
+    }
+    nav{
+        flex-direction: column;
+    }
+    .signup{
+      flex-direction: column;
+    }
+    .mob-nav{
+      display: block;
+    }
+    .close{
+      display: none;
+    }
+    .active .close{
+      display: block;
+    }
+    .active .bar{
+      display: none;
+    }
+    main{
+      text-align: center;
+    }
+    .designed h2{
+      text-align: center;
+    }
+    .designed-content{
+      flex-direction: column;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .designed-left{
+      padding: 20px 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 50px; 
+    }
+    .designed-left-1,.designed-left-2{
+      padding: 0;
+    }
+    .designed-right{
+      background-image: url(images/illustration-editor-mobile.svg);
+      height: 300px;
+      width: 100%;
+      background-size: 100% 100%;
+      order: -1;
+      padding: 0;
+      padding: 20px 0px; 
+    }
+    .designed-content .designed-right{
+      padding: 0;
+    }
+    .mobile{
+      padding: 50px 0;
+    }
+  .mobile-content{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-image: linear-gradient(hsl(237, 17%, 21%),hsl(237, 23%, 32%));
+  flex-direction: column;
+  padding: 20px 0px;
+  }
+  .mobile-left{
+    width: 100%;
+    background-image: url(images/illustration-phones.svg);
+    height: 400px;
+    background-size: 100% 100%;
+    margin: 0px;
+    position: static;
+    left: 0;
+    padding: 0; 
+  }
+  .mobile-right{
+    padding: 0px;
+    width: 100%;
+    margin-left: 0px;
+    text-align: center;
+    padding: 20px 20px;
+  }
+  .mobile-right .heading{
+    color: white;
+  }
+  .mobile-right .para{
+    color: gray;
+  }
+  .laptop-content{
+     width: 100%;
+     height: auto;
+     display: flex;
+     align-items: center;
+     /* padding: 30px 20px; */
+     flex-direction: column;
+     text-align: center;
+  }
+  .laptop-left{
+    background-image: url(images/illustration-laptop-mobile.svg);
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+  }
+  .laptop-right{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+  .footer-content{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   padding: 20px 20px;
+   padding-right: 0px;
+   flex-direction: column;
+   gap: 30px;
+   align-items: center;
+  }
+  .footer-item{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  } 
+  .footer-link li a{
+    display: inline-block;
+    padding: 5px 0;
+    color: hsl(240, 2%, 79%);
+    position: relative;  
+  }
+
+  }
+
+  @media(max-width:375px){
+    .navbar{
+      padding: 50px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- header start -->
+  <header>
+    <div class="header-container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/logo.svg" alt="">
+        </div>
+        <div class="navbar">
+          <nav>
+            <li class="nav-link">Product <img src="images/icon-arrow-light.svg" class="arrow">
+              <div class="link-content">
+                <p class="link-item"><a href=""> Overview</a></p>
+                <p class="link-item"><a href="">Pricing</a></p>
+                <p class="link-item"><a href="">Marketplace</a></p>
+                <p class="link-item"><a href="">Features</a></p>
+                <p class="link-item"><a href="">Integrations</a></p>
+              </div>
+            </li>
+
+            <li class="nav-link">Company <img src="images/icon-arrow-light.svg" class="arrow">
+              <div class="link-content">
+                <p class="link-item"><a href="">About</a></p>
+                <p class="link-item"><a href="">Team</a></p>
+                <p class="link-item"><a href="">Blog</a></p>
+                <p class="link-item"><a href="">Careers</a></p>
+              </div>
+            </li>
+
+            <li class="nav-link"> Connect <img src="images/icon-arrow-light.svg" class="arrow">
+              <div class="link-content">
+                <p class="link-item"><a href="">Contact</a></p>
+                <p class="link-item"><a href="">Newsletter</a></p>
+                <p class="link-item"><a href="">LinkedIn</a></p>
+              </div>
+            </li>
+          </nav>
+          <div class="signup">
+            <div class="login">
+              <a href="" class="login-a">Login</a>
+            </div>
+            <div class="register">
+              <a href="" class="btn btn-1">Sign Up</a>
+            </div>
+          </div>
+        </div>
+          <div class="mob-nav">
+           <img src="images/icon-hamburger.svg" class="bar">
+           <img src="images/icon-close.svg" class="close">
+          </div>
+    
+      </div>
+
+    </div>
+    <main>
+      <div class="container">
+        <div class="main-content">
+          <h1 class="main-heading">A modern publishing platform</h1>
+          <p class="para"> Grow your audience and build your online brand</p>
+          <div class="main-btn">
+            <button class="btn btn-1">Start for Free</button>
+            <button class="btn btn-2">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </header>
+  <!-- header end -->
+
+  <!-- designed start -->
+  <section class="designed">
+    <div class="container-designed">
+      <!-- <h2 class="heading">Designed for the future</h2> -->
+      <div class="designed-content">
+        
+        <div class="designed-left">
+          <h2 class="heading">Designed for the future</h2>
+          <div class="designed-left-1">
+          <h3 class="sub-heading">Introducing an extesnsible editor</h3>
+          <p class="para"> Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. 
+            The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, 
+            videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or 
+            change the looks of a blog.</p>
+          </div>
+          <div class="designed-left-2">
+            <h3 class="sub-heading">Robust content management</h3>
+            <p class="para"> Flexible content management enables users to easily move through posts. Increase the usability of your blog 
+              by adding customized categories, sections, format, or flow. With this functionality, you’re in full control.</p>
+          </div>
+           
+        </div>
+        <div class="designed-right">
+          
+        </div>
+      </div>
+    </div>
+  
+  </section>
+  <!-- designed end -->
+ 
+   <!-- mobile start -->
+  <section class="mobile">
+    <div class="mobile-content">
+      <div class="mobile-left">
+         
+      </div>
+      <div class="mobile-right">
+           <h2 class="heading">State of the Art Infrastructure</h2>
+           <p class="para"> With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity. 
+            This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.</p>
+      </div>
+    </div>
+  </section>
+  <!-- mobile end -->
+
+  <!-- laptop start -->
+  <section class="laptop">
+    <div class="laptop-content">
+      <div class="laptop-left">
+
+      </div>
+      <div class="laptop-right">
+        <div class="laptop-right-1">
+          <h3 class="sub-heading"> Free, open, simple</h3>
+          <p class="para"> Blogr is a free and open source application backed by a large community of helpful developers. It supports 
+            features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, 
+            and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.</p>
+        </div>
+        <div class="laptop-right-2">
+          <h3 class="sub-heading">Powerful tooling</h3>
+          <p class="para"> Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but
+            capable of producing even the most complicated sites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- laptop end -->
+
+  <!-- footer start -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-item">
+        <img src="images/logo.svg" alt="">
+      </div>
+      <div class="footer-item">
+        <div class="footer-heading">
+          <p>Product</p>
+        </div>
+          <div class="footer-link">
+            <li><a href=""> Overview</a></li>
+            <li><a href=""> Pricing</a></li>
+            <li><a href=""> Marketplace</a></li>
+            <li><a href=""> Features</a></li>
+            <li><a href=""> Integrations</a></li>
+          </div>
+      </div>
+      <div class="footer-item">
+        <div class="footer-heading">
+          <p> Company</p>
+        </div>
+          <div class="footer-link">
+            <li><a href=""> About</a></li>
+            <li><a href=""> Team</a></li>
+            <li><a href=""> Blog</a></li>
+            <li><a href=""> Careers</a></li>
+           
+          </div>
+      </div>
+      <div class="footer-item">
+        <div class="footer-heading">
+          <p> Connect</p>
+        </div>
+          <div class="footer-link">
+            <li><a href=""> Contact</a></li>
+            <li><a href=""> Newsletter</a></li>
+            <li><a href=""> LinkedIn</a></li>
+            
+           
+          </div>
+      </div>
+
+    </div>
+  </footer>
+  <!-- footer end -->
+
+  <script>
+    const header = document.querySelector('.header-content');
+    const btn = document.querySelector('.mob-nav');
+
+    btn.addEventListener('click', () =>{
+      header.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

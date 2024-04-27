@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  
+  <title> Interactive card details form</title>
+
+  <style>
+
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    body{
+      font-size: 18px;
+      overflow: hidden; 
+    }
+    button{
+      width: 400px;
+      padding: 10px;
+      background-color: hsl(278, 68%, 11%);
+      color: hsl(0, 0%, 100%);
+      font-size: 18px;
+    }
+    .content{
+      width: 100%;
+      display: flex;   
+    }
+    .left-content{
+      width: 25%;
+      height: 100vh;
+      background-image: url(images/bg-main-desktop.png);  
+    }
+    .right-content{
+      width: 75%;
+      height: 100vh;
+      background-color: hsl(0, 0%, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;  
+    }
+    .right-content-item-1{
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      position: absolute;
+    }
+    .right-content-item-2{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: absolute;
+      left: 1500px;
+    }
+    .active-1 .right-content-item-1{
+      left: 1000px;
+    }
+    .active-1 .right-content-item-2{
+      left: 642px;
+    }
+    .active-2 .right-content-item-2{
+      left: 1500px;
+    }
+    .active-2 .right-content-item-1{
+      left: 170px;
+    }
+    .right-content-item-2 img{
+      width: 80px;
+    }
+    .input-box{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;  
+    }
+    label{
+      color: hsl(278, 68%, 11%);
+    }
+    .input-box input{
+      width: 400px;
+      height: 50px;
+      padding-left: 10px;
+      font-size: 18px;
+      outline: none;
+      border: 1px solid hsl(270, 3%, 87%);
+      font-weight: 500;   
+    }
+    input:focus{
+      border: 1px solid  hsl(249, 99%, 64%);
+    }
+    .input-box-exp{
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+    .input-left{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;   
+    }
+    .input-control{
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+    }
+    .input-left input{
+      width: 85px;
+      height: 50px;
+    }
+    .input-d-m{
+      display: flex;
+      gap: 10px;  
+    }
+    .input-right input{
+      width: 200px;
+    }
+    .front-card{
+      width: 450px;
+      height: 250px;  
+      position: absolute;
+      background-image: url(images/bg-card-front.png);
+      background-repeat: no-repeat;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: white;
+      top: 5%;
+      left: 5%;
+      border-radius: 10px;
+    }
+    .front-card .number{
+      font-size: 32px;
+    }
+    .card-n{
+      font-weight: 500;
+    }
+   .front-card .name{
+      font-weight: 100;
+    }
+   .front-card .exp{
+      font-weight: 100;
+    }
+    .name-exp{
+      display: flex;
+      justify-content: space-between;   
+    }
+    .front-card img{
+      width: 80px;
+      margin-bottom: 40px;
+    }
+    .back-card{
+      position: absolute;
+      background-image: url(images/bg-card-back.png);
+      width: 450px;
+      height: 250px;
+      background-repeat: no-repeat;
+      top: 50%;
+      left: 10%;
+      border-radius: 10px;   
+    }
+    .back-card p{
+      position: relative;
+      top: 45%;
+      left: 80%;
+      color: white;
+    }
+    .input-control{
+      position: relative;
+    }
+
+    .small-text{
+      /* visibility: visible; */
+      position: absolute;
+      bottom: -25px;
+    }
+
+    /* .input-box */
+    small{
+     visibility: hidden;
+    }
+    .input-control.error small{
+      visibility: visible;
+      color: hsl(0, 100%, 66%);
+    }
+    .input-control.error input{
+      border-color: hsl(0, 100%, 66%);
+    }
+    .input-control.success input{
+      border-color: rgb(7, 252, 7);
+    }
+  
+
+    @media(max-width:430px){
+
+      .content{
+        width: 100%;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+      .right-content-item-1{
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      position: absolute;
+      padding: 20px;
+      /* left: 1000px; */
+    }
+    .right-content-item-2{
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: absolute;
+      padding: 20px;
+      /* left: 642px; */
+      left: 1500px;
+    }
+    .active-1 .right-content-item-1{
+      left: 1000px;
+    }
+    .active-1 .right-content-item-2{
+      left: 0px;
+    }
+    .active-2 .right-content-item-2{
+      left: 1000px;
+    }
+    .active-2 .right-content-item-1{
+      left: 0px;
+    }
+      .left-content{
+        background-image: url(images/bg-main-mobile.png);
+        height: 200px;
+        width: 100%;
+        background-size: cover;
+        /* border: 10px solid blue;   */
+      }
+    .right-content{
+      width: 100%;
+      height: calc(100vh - 200px);
+      background-color: hsl(0, 0%, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+      .front-card{
+        width: 60%;
+        gap: 10px;
+        height: auto;
+        top: 12%;
+        left: 100px;
+        z-index: 1;
+      }
+      .front-card img{
+        margin-bottom: 10px;
+        width: 50px;
+      }
+      .card-n{
+        font-size: 18px;
+      }
+      .name{
+        font-size: 14px;
+      }
+      .exp{
+        font-size: 12px;
+      }
+      .back-card{
+      width: 60%;
+      height: 130px;
+      background-size: cover;
+      top: 2%;
+      /* left:40%; */
+      left: 35%;
+      }
+      .back-card p{
+      position: relative;
+      top: 45%;
+      right:  0;
+      display: inline-block;
+      color: white;
+      font-size: 16px;
+    }
+
+    .input-box{
+      width: 100%;
+    }
+    .input-box input{
+      width: 100%;
+      height: 50px;
+      padding-left: 10px;
+      font-size: 18px;
+      outline: none;
+      border: 1px solid hsl(270, 3%, 87%);
+      font-weight: 500;
+    }
+    .input-left{
+      width: 50%;
+      /* display: flex;
+      flex-direction: column; */
+    }
+    .input-left input{
+      width: 100%;
+    }
+     .input-right{
+      width: 50%;
+    }
+    .input-right input{
+      width: 100%;
+    }
+    button{
+      width: 100%;
+      border-color: hsl(278, 68%, 11%);
+    }
+
+    }
+
+    @media(max-width:375px){
+
+      .right-content-item-1{
+        padding: 15px;
+      }
+      label{
+        font-size: 16px;
+      }
+
+      .front-card{
+        top: 15%;
+        left: 85px;
+      }
+      .back-card{
+        top: 50px;
+      }
+      .back-card p{
+        top: 52px;
+      }
+      .input-box-exp{
+        gap: 10px;
+      }
+      .input-left{
+          width: 65%;
+        }
+      .input-right{
+        width: 35%;
+        }
+    }
+
+    @media(max-width:320px){
+  
+      .content{
+        height: auto;
+      }
+      .right-content-item-1{
+        gap: 15px;
+      }
+      .front-card{
+        padding: 10px;
+      }
+      .card-n{
+        font-size: 16px;
+      }
+      .name{
+        font-size: 12px;
+      }
+      .exp{
+        font-size: 12px;
+      }
+      .input-box input{
+        height: 40px;
+      }
+      .input-box-exp{
+        gap: 10px;
+      }
+      .input-left{
+          width: 65%;
+        }
+        .input-left input{
+          height: 40px;
+        }
+      .input-right{
+        width: 35%;
+        }
+        .input-right input{
+          height: 40px;
+        }
+
+        .front-card{
+        top: 15%;
+        left: 50px;
+      }
+      .back-card{
+        top: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- content start -->
+  <div class="content">
+    <!-- left content start -->
+    <div class="left-content">
+       
+    </div>
+    <!-- left content end -->
+
+    <!-- right content start -->
+    <div class="right-content">
+      <form action="" class="right-content-item-1">
+          <div class="input-box">
+            <div class="input-control">
+          <label>Cardholder Name</label>
+          <input type="text" class="card-name" placeholder="e.g. Jane Appleseed">
+          <small>error text</small>
+        </div>
+        </div>
+        <div class="input-box">
+          <div class="input-control">
+          <label>Card Number</label>
+          <input type="text" class="card-number" placeholder="e.g. 1234 5678 9123 0000">
+          <small>error text</small>
+        </div>
+        </div>
+        <div class="input-box input-box-exp">
+          <div class="input-left">
+          <div class="input-left-1">
+            <div class="input-control">
+            <label for="">Month</label>
+            <input type="text" class="month" placeholder="MM">
+            <small class="small-text">error text</small>
+          </div>
+          </div>
+          <div class="input-left-2">
+            <div class="input-control">
+            <label for="">Year</label>
+            <input type="text" class="year" placeholder="YY">
+            <small class="small-text">error text</small>
+          </div>
+          </div>
+          </div>
+          <div class="input-right">
+            <div class="input-control">
+            <label>CVC</label>
+            <input type="text" class="cvc" placeholder="e.g. 123">
+            <small>error text</small>
+          </div>
+          </div>
+        </div>
+        <div class="input-box">
+          <button class="btn btn-1">Confirm</button>
+        </div>
+      </form>
+       
+         <div class="right-content-item-2">
+             <img src="images/icon-complete.svg" alt="">
+             <h2>THANK YOU!</h2>
+             <p class="para">We've added your card details</p>
+             <button class="btn-2">Continue</button>
+         </div>
+    </div>
+    <!-- right content end -->
+
+    <!-- card start -->
+    <div class="front-card">
+      <img src="images/card-logo.svg" alt="">
+      <div class="number">
+        <h3 class="card-n">0000 0000 0000 0000</h3>
+      </div>
+      <div class="name-exp">
+         <p class="name">JANE APPLESEED</p>
+         <p class="exp">00/00</p>
+      </div>
+    </div>
+    <!-- card end -->
+
+    <!-- cv start -->
+    <div class="back-card">
+      <p class="cv">000</p>
+    </div>
+    <!-- cv end -->
+  </div>
+  <!-- content end -->
+
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+  <script>
+   
+    const form = document.querySelector('form');
+    const cardName = document.querySelector('.card-name');
+    const cardNumber = document.querySelector('.card-number');
+    const month = document.querySelector('.month');
+    const year = document.querySelector('.year');
+    const cvc = document.querySelector('.cvc');
+
+    // show data access
+      let cardNumShow = document.querySelector('.card-n');
+      let cardNameShow = document.querySelector('.name');
+      let cardExpShow = document.querySelector('.exp');
+      let cardCvShow = document.querySelector('.cv');
+
+    form.addEventListener('submit', (e) =>{
+      e.preventDefault();
+
+      inputsValidate();
+       
+    });
+       
+    const sendData = (sRate,count,cardNameVal,cardNumberVal,monthVal,yearVal,cvcVal) =>{
+      if(sRate === count){
+        console.log("successfull");
+
+      //  show input data in card
+      cardNameShow.innerHTML = cardNameVal;
+      cardNumShow.innerHTML  = cardNumberVal;
+      cardExpShow.innerHTML = `${monthVal}/${yearVal}`;
+      cardCvShow.innerHTML = cvcVal;
+
+   
+      // remove input fields values after show data
+      let inputField = document.getElementsByTagName('input');
+      console.log(inputField);
+      for(k = 0; k < inputField.length; k++){
+        inputField[k].value = "";
+      }
+
+      // remove success class in input after show data
+      let inputControls = document.getElementsByClassName('input-control');
+      for(let j = 0; j < inputControls.length; j++){
+        console.log(inputControls[j]);
+        inputControls[j].classList.remove('success');
+      }
+
+      // show thank you page
+      let content = document.querySelector('.content');
+      content.classList.add('active-1');
+      content.classList.remove('active-2');
+
+      // back to input form page
+      const btn2 = document.querySelector('.btn-2');
+
+        btn2.addEventListener('click', () => {
+      content.classList.add('active-2');
+      content.classList.remove('active-1');
+    });
+
+      }else{
+        console.log("error faild")
+      }
+    }
+
+     const successMsgFun = (cardNameVal,cardNumberVal,monthVal,yearVal,cvcVal) =>{
+      let inputFom = document.getElementsByClassName('input-control');
+      var count = inputFom.length - 1;
+      // console.log(count)
+    for(let i = 0; i < inputFom.length; i ++){
+      if(inputFom[i].className === 'input-control success'){
+        var sRate = 0 + i;
+        // console.log(sRate);
+        sendData(sRate,count,cardNameVal,cardNumberVal,monthVal,yearVal,cvcVal);
+      }else{
+        return false;
+      }
+    }
+  }
+
+  
+   
+
+    const setErrorMsg = (element,message) =>{
+      const inputControl = element.parentElement;
+      const small = inputControl.querySelector('small');
+
+      inputControl.classList.add('error');
+      inputControl.classList.remove('success');
+      small.innerText = message;
+    }
+
+    const setSuccessMsg = (element,message) =>{
+      const inputControl = element.parentElement;
+      // const small = inputControl.querySelector('small');
+
+      inputControl.classList.add('success');
+      inputControl.classList.remove('error');
+      // small.innerText = message;
+    }
+
+    const inputsValidate = () =>{
+      const cardNameVal = cardName.value;
+      const cardNumberVal = cardNumber.value;
+      const monthVal = month.value;
+      const yearVal = year.value;
+      const cvcVal = cvc.value;
+
+      // card name validate
+      if(cardNameVal === ""){
+        setErrorMsg(cardName, "this field is required");
+      
+      }else if(cardNameVal.length < 3){
+        setErrorMsg(cardName, "card name must be at least 4 character")
+      }else if(cardNameVal.length > 20){
+        setErrorMsg(cardName, "card name must be less then 20 character")
+      }else{
+        setSuccessMsg(cardName);
+      }
+
+      // card number validate
+      if(cardNumberVal === ""){
+        setErrorMsg(cardNumber, "this field is required");
+      }else if(isNaN(cardNumberVal)){
+        setErrorMsg(cardNumber, "please insert only numberic values")
+      }else if(cardNumberVal.length < 16){
+        setErrorMsg(cardNumber, "card number must be 16 digits")
+      }else if(cardNumberVal.length > 16){
+        setErrorMsg(cardNumber, "card number must be 16 digits")
+      }else{
+        setSuccessMsg(cardNumber);
+      }
+
+      // validate month
+      if(monthVal === ""){
+        setErrorMsg(month, "cant't blank");
+      }else if(isNaN(monthVal)){
+        setErrorMsg(month, "only number")
+      }else if(monthVal.length > 2){
+        setErrorMsg(month, "invalid");
+      }else if(monthVal == 0){
+        setErrorMsg(month, "min 1")
+      }
+      else if(monthVal > 12){
+        setErrorMsg(month, "max 12")
+      }
+      else{
+        setSuccessMsg(month);
+      }
+
+      // validate year
+      if(yearVal === ""){
+        setErrorMsg(year, "cant't blank");
+      }else if(isNaN(yearVal)){
+        setErrorMsg(year, "only number")
+      }else if(yearVal.length < 4 || yearVal.length > 4){
+        setErrorMsg(year, "invalid year");
+      }else if(yearVal < 2024){
+        setErrorMsg(year, "expired");
+      }else if(yearVal > 2040){
+        setErrorMsg(year, "max 2040");
+      }
+      else{
+        setSuccessMsg(year);
+      }
+
+      // cvc validate
+      if(cvcVal === ""){
+        setErrorMsg(cvc, "this field is required");
+      }else if(isNaN(cvcVal)){
+        setErrorMsg(cvc, "insert only numberic values")
+      }else if(cvcVal.length < 3){
+        setErrorMsg(cvc, "cvc number must be 3 digits")
+      }else if(cvcVal.length > 3){
+        setErrorMsg(cvc, "cvc number must be 3 digits")
+      }else{
+        setSuccessMsg(cvc);
+      }
+
+      successMsgFun(cardNameVal,cardNumberVal,monthVal,yearVal,cvcVal);
+    }
+
+  </script>
+</body>
+</html>

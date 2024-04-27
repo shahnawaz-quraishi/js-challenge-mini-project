@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <title> News homepage</title>
+  <style>
+
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      list-style: none;
+      text-decoration: none;
+    }
+    .para{
+      color: hsl(236, 13%, 42%);
+      font-size: 16px;
+      word-spacing: 5px;
+      line-height: 20px;
+    }
+    .heading{
+      font-size: 32px;
+      font-weight: 900;
+    }
+    .sub-heading{
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+    .mini-heading{
+      font-size: 16px;
+      font-weight: 900; 
+    }
+    button{
+      padding: 10px 30px;
+      background-color: hsl(5, 85%, 63%);
+      color: white;
+      border: none;
+    }
+    button:hover{
+      filter: brightness(120%);
+    }
+    .container{
+      padding: 20px 100px;
+    }
+    .header-content{
+      display: flex;
+      justify-content: space-between;
+    }
+    nav{
+      display: flex;
+      align-items: center;    
+    }
+    nav li{
+      padding-inline: 20px;
+    }
+    .main-content{
+      width: 100%;
+      display: flex;
+      gap: 40px;
+    }
+    .main-left{
+      width: 75%;    
+    }
+    .main-image{   
+     height: 250px;
+      background-image: url(assets/images/image-web-3-desktop.jpg);
+      background-size: 100% 100%;
+    }
+    .main-right{
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 10px;
+      background-color: hsl(240, 100%, 5%);
+    }
+    .main-right .heading{
+      color: hsl(35, 77%, 62%);
+    }
+    .main-right .sub-heading{
+      color: white;
+    }
+    .main-left-text{
+      display: flex;
+      width: 100%;
+      margin-top: 15px;
+      gap: 100px;
+      align-items: center;     
+    }
+    .main-left-text-head{
+      width: 25%;
+    }
+    .main-left-para-text{
+      width: 75%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  .main-left-para-text button{
+      width: 30%;
+    }
+    .news-content{
+      display: flex;
+      gap: 20px;   
+    }
+    .news-item{
+      display: flex;
+      gap: 10px;
+      width: 340px;
+    }
+    .news-item img{
+      width: 80px;
+      height: 100px;
+      padding-right: 10px;
+    }
+    .news-text{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .num{
+      font-size: 20px;
+      color: hsl(233, 8%, 79%);
+      font-weight: 800;
+      font-family: sans-serif;
+    }
+    .mobile-nav{
+      display: none;
+    }
+    i{
+      font-size: 50px;   
+    }
+    .x{
+      display: none;
+    }
+
+
+    @media(max-width:430px){
+      .container{
+        padding: 20px 10px;
+      }
+      .heading{
+        font-size: 40px;
+      }
+      nav{
+        display: none;
+      }
+     .active .navbar{   
+        display: flex;
+        flex-direction: column;
+       text-align: justify;
+        gap: 40px;
+        width: 70%;
+        height: 100vh;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        background-color: white;
+      }
+      .active nav{
+        display: flex;
+        flex-direction: column;
+        align-items: start;      
+      }
+      .active nav li{
+        padding: 20px 0;
+      }
+      .active nav li a{
+        font-size: 25px;
+        color: black;
+        font-weight: 600;      
+      }
+        .mobile-nav{
+        text-align: end;
+        display: block;
+      }
+      .active .x{
+        display: block;
+      }
+      .active .bar{
+        display: none;
+      }
+      .main-content{
+        flex-direction: column;
+      }
+      .main-left{
+      width: 100%;   
+    }
+    .main-left-text{
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;   
+    }
+    .main-left-text-head{
+      width: 100%;   
+    }
+    .main-left-para-text{
+      width: 100%;
+    }
+    .main-content button{
+      width: 50%;
+      padding: 20px;
+    }
+    .main-image{
+     height: 300px;
+      background-image: url(assets/images/image-web-3-mobile.jpg);   
+    }
+    .main-right{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 10px;
+      background-color: hsl(240, 100%, 5%);
+      flex-direction: column;
+    }
+    .main-right .sub-heading{
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .news-content{
+      flex-direction: column;
+    }
+    .news-content img{
+      width: 150px;
+      height: 150px;
+    }
+    .news-content .mini-heading{
+      font-size: 18px;
+    }
+    }
+
+    @media(max-width:360px){
+      .news-content img{
+      width: 100px;
+      height: 100px;
+      padding-right: 5px;
+    }
+    .news-item{
+     
+      width: 300px;
+    }
+     .news-text .para{
+      word-spacing: 0px;
+      font-size: 14px;
+    }
+
+  }
+    
+  </style>
+</head>
+<body>
+
+  
+  <!-- Header Start -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+      <div class="logo">
+        <img src="assets/images/logo.svg" alt="">
+      </div>
+      <div class="navbar">
+        <div class="mobile-nav">
+          <i class="bi bi-justify bar"></i>
+          <i class="bi bi-x-lg x"></i>
+        </div>
+      <nav>
+       <li><a href="#">Home</a></li>
+       <li><a href="#">New</a></li>
+       <li><a href="#">Popular</a></li>
+       <li><a href="#">Tranding</a></li>
+       <li><a href="#">Categories</a></li>
+      </nav>
+    </div>
+
+
+    </div>
+  </div>
+    </header>
+  <!-- Header End -->
+
+  <!-- main start -->
+  <main>
+    <div class="container">  
+    <div class="main-content">
+       <div class="main-left">
+        <div class="main-image">
+        
+        </div>
+         <div class="main-left-text">
+            <div class="main-left-text-head">
+              <h2 class="heading">The Bright Future of Web 3.0?</h2>
+            </div>
+            <div class="main-left-para-text">
+              <p class="para">We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
+                But is it really fulfilling its promise?</p>
+              <button type="button" class="btn">Read More</button>
+            </div>
+         </div>
+       </div>
+       <div class="main-right">
+            <h2 class="heading">New</h2>
+            <div class="main-right-text">
+              <h4 class="sub-heading">Hydrogen VS Electric Cars</h4>
+              <p class="para">Will hydrogen-fueled cars ever catch up to EVs?</p>
+            </div>
+
+            <hr>
+
+            <div class="main-right-text">
+              <h4 class="sub-heading">The Downsides of AI Artistry</h4>
+              <p class="para"> What are the possible adverse effects of on-demand AI image generation?</p>
+            </div>
+
+            <hr>
+
+            <div class="main-right-text">
+              <h4 class="sub-heading">Is VC Funding Drying Up?</h4>
+              <p class="para"> Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+            </div>
+       </div>
+    </div>
+    </div>
+  </main>
+  <!-- main end -->
+
+  <!-- news start -->
+  <section class="news">
+    <div class="container">
+      <div class="news-content">
+        <div class="news-item">
+          <img src="assets/images/image-retro-pcs.jpg" alt="">
+          <div class="news-text">
+            <p class="num">01</p>
+            <h5 class="mini-heading">Reviving Retro PCs</h5>
+            <p class="para">What happens when old PCs are given modern upgrades?</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <img src="assets/images/image-top-laptops.jpg" alt="">
+          <div class="news-text">
+            <p class="num">02</p>
+            <h5 class="mini-heading"> Top 10 Laptops of 2022</h5>
+            <p class="para">Our best picks for various needs and budgets.</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <img src="assets/images/image-gaming-growth.jpg" alt="">
+          <div class="news-text">
+            <p class="num">03</p>
+            <h5 class="mini-heading">The Growth of Gaming</h5>
+            <p class="para"> How the pandemic has sparked fresh opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- news end -->
+
+  <script>
+    const mobNav = document.querySelector('.mobile-nav');
+    const navbar = document.querySelector('.header-content');
+
+    mobNav.addEventListener('click', () =>{
+      navbar.classList.toggle('active');
+    
+    })
+  </script>
+</body>
+</html>

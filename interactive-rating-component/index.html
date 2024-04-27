@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  
+  <title> Interactive rating component</title>
+
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 15px;
+      font-family: sans-serif;
+      list-style: none;
+    }
+    body{
+      background-color: hsl(216, 12%, 8%);
+      overflow: hidden;
+    }
+    .para{  
+      color: hsl(216, 12%, 54%);
+      line-height: 25px;
+    }
+    .heading{
+      color: hsl(0, 0%, 100%);
+      font-size: 25px;
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .content{
+      width: 400px;
+      height: 400px;
+      padding: 30px;
+      background-color: hsl(213, 19%, 18%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-radius: 30px;
+      position: absolute;
+      /* left: 1500px; */
+      /* display: none; */
+    }
+    .active .content{
+      left: 1500px;
+    }
+    .star-img{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+      display: grid;
+      place-items: center;
+    }
+    .star{
+      padding: 10px; 
+    }
+    .rate-num{
+      display: flex;
+      gap: 20px;
+    }
+    .list{
+      /* width: 50px;
+      height: 50px; */
+      color: hsl(217, 12%, 63%);
+      border-radius: 50%;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+    .list:hover{
+       color: hsl(0, 0%, 100%);
+       background-color: hsl(25, 97%, 53%);
+    }
+    .list li{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 18px;
+      display: grid;
+      place-items: center;
+    }
+    button{
+      padding: 10px;
+      border-radius: 25px;
+      margin-top: 10px;
+      background-color: hsl(25, 97%, 53%);
+      color: hsl(0, 0%, 100%);
+      font-size: 18px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover{
+      background-color: hsl(0, 0%, 100%);
+      color: hsl(25, 97%, 53%);
+    }
+    .content-2{
+      width: 400px;
+      height: 400px;
+      padding: 30px;
+      background-color: hsl(213, 19%, 18%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      border-radius: 30px;
+      position: absolute;
+      left: 1500px;
+      /* left: -1500; */
+    }
+    .active .content-2{
+      /* left: 500px; */
+      left: 35%;
+    }
+    .content-2 .thank{
+      width: 200px;
+    }
+    .d-result{
+      padding: 5px 20px;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      color: hsl(25, 97%, 53%);
+    }
+
+  @media(max-width:430px){
+    .container{
+     position: relative;
+     overflow: hidden;
+    }
+
+    .content{
+      padding: 20px;
+      width: 90%;
+    }
+    .content-2{
+      padding: 20px;
+      width: 90%;
+    }
+
+    .active .content{
+      left: 600px;
+    }
+    .active .content-2{
+      left: 20px;
+    }
+  }
+
+  @media(max-width:375px){
+    .rate-num{
+      gap: 15px;
+    }
+    .list li{
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media(max-width:320px){
+    .rate-num{
+      gap: 10px;
+    }
+    .list li{
+      width: 40px;
+      height: 40px;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Rating state start -->
+
+  <div class="container">
+    <div class="content">
+      <div class="star-img">
+      <img src="images/icon-star.svg" class="star">
+    </div>
+      <h2 class="heading"> How did we do?</h2>
+      <p class="para"> Please let us know how we did with your support request. All feedback is appreciated 
+        to help us improve our offering!</p>
+        <div class="rate-num">
+          <div class="list">
+          <li>1</li>
+        </div>
+        <div class="list">
+          <li>2</li>
+        </div>
+        <div class="list">
+          <li>3</li>
+        </div>
+        <div class="list">
+          <li>4</li>
+        </div>
+           <div class="list">
+            <li>5</li>
+          </div>
+
+        </div>
+        <button class="btn btn-1">Submit</button>
+    </div>
+
+    <div class="content-2">
+      <img src="images/illustration-thank-you.svg" class="thank">
+       <div class="result">
+        <p class="para d-result">Please rating any number</p>
+       </div>
+       <h2 class="heading">Thank You!</h2>
+       <p class="para">We appreciate you taking the time to give a rating. If you ever need more support, 
+        don’t hesitate to get in touch!</p>
+    </div>
+  </div>
+
+  <!-- Thank you state end -->
+
+
+  <script>
+    const btn = document.querySelector('.btn');
+    let content1 = document.querySelector('.content');
+    let content2 = document.querySelector('.content-2');
+    let rateNum = document.querySelector('.rate-num');
+    let dResult = document.querySelector('.d-result');
+    let list = document.querySelector('.list');
+    let container = document.querySelector('.container');
+    btn.addEventListener('click', () => {
+       container.classList.add('active')
+       
+    });
+
+    rateNum.addEventListener('click', (e) => {
+            console.log(e.target.innerText);
+            rateStar = e.target.innerText;
+
+            e.target.style.backgroundColor = 'hsl(217, 12%, 63%)';
+            e.target.style.color = 'hsl(0, 0%, 100%)';
+
+              dResult.innerHTML = `You selected ${rateStar} out of 5`;
+    });
+
+
+  </script>
+</body>
+</html>

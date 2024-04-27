@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  
+  <title>Notifications page</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .heading{
+      font-size: 20px;
+    }
+    .heading-num{
+      background-color: hsl(219, 85%, 26%);
+      color: white;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+    }
+    img{
+      width: 30px;
+      border-radius: 50%;
+    }
+    .content-item{
+      font-size: 15px;   
+    }
+    .name{
+      font-weight: 700;
+      color: black;
+      cursor: pointer;
+    }
+    .para{
+      color: gray;
+      font-weight: 100;
+    }
+    .event{
+      color: hsl(219, 85%, 26%);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .time{
+      color: gray;
+    }
+    .item-bg{
+      background-color: hsl(210, 60%, 98%);
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .content{
+      width: 550px;
+      height: auto;
+      border: 1px solid black;
+      padding: 20px;  
+    }
+    .content-heading{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .noti{
+      display: flex;
+      gap: 10px;  
+    }
+    .top-para{
+      color: hsl(219, 85%, 26%);
+      cursor: pointer;
+    }
+    .content-items{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .content-item{
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+    }
+    .chess{
+      position: relative;
+      right: -95px;
+      width: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .text{
+      display: flex;
+      gap: 5px;
+    }
+    .content-item-text{
+      display: flex;
+      flex-direction: column;
+    }
+    .info{
+      border: 1px solid hsl(205, 33%, 90%);
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;    
+    }
+    .info:hover{
+      background-color: hsl(205, 33%, 90%);
+    }
+
+    @media(max-width:430px){
+      .container{
+        height: auto;
+      }
+      .chess{
+      position: relative;
+      right: 1px; 
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+    .content-item{
+      font-size: 17px; 
+    }
+    }
+
+    @media(max-width:320px){
+      .content{
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+      <div class="content-heading">
+        <div class="noti">
+        <h4 class="heading"> Notifications </h4>
+         <p class="heading-num">3</p>
+      </div>
+        <p class="top-para"> Mark all as read</p>
+      </div>
+      <div class="content-items">
+          <div class="content-item item-bg">
+            <div class="content-item-image">
+            <img src="assets/images/avatar-mark-webber.webp" alt="">
+          </div>
+          <div class="content-item-text">
+            <div class="texts">
+            <p class="name"> Mark Webber 
+             <span class="para"> reacted to your recent post  <span class="event"> My first tournament today! </span> </span>  </p> 
+            </div>  
+            <p class="time">1m ago</p>
+          </div>
+          </div>
+
+          <div class="content-item item-bg">
+            <div class="content-item-image">
+            <img src="assets/images/avatar-angela-gray.webp" alt="">
+          </div>
+          <div class="content-item-text">
+            <div class="texts">
+            <p class="name">  Angela Gray  
+             <span class="para"> followed you </span> </p>
+             
+            </div>  
+            <p class="time">5m ago</p>
+          </div>
+          </div>
+
+          <div class="content-item item-bg">
+            <div class="content-item-image">
+            <img src="assets/images/avatar-jacob-thompson.webp" alt="">
+          </div>
+          <div class="content-item-text">
+            <div class="texts">
+            <p class="name"> Jacob Thompson 
+             <span class="para"> has joined your group <span class="event"> Chess Club </span> </span> </p>
+            </div>  
+            <p class="time"> 1 day ago</p>
+          </div>
+          </div>
+
+          <div class="content-item">
+            <div class="content-item-image">
+            <img src="assets/images/avatar-rizky-hasanuddin.webp" alt="">
+          </div>
+          <div class="content-item-text">
+            <div class="texts">
+            <p class="name">  Rizky Hasanuddin
+             <span class="para">  sent you a private message</span>  </p>
+            </div>  
+            <p class="time">  5 days ago</p>
+             <p class="info"> Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and 
+              I'm already having lots of fun and improving my game.</p>
+          </div>
+          </div>
+
+          <div class="content-item">
+            <div class="content-item-image">
+            <img src="assets/images/avatar-kimberly-smith.webp" alt="">
+          </div>
+          <div class="content-item-text">
+            <div class="texts">
+            <p class="name"> Kimberly Smith 
+             <span class="para"> commented on your picture </span></p> 
+            </div>  
+            <p class="time">1 week ago</p>
+          </div>
+          <img src="assets/images/image-chess.webp" class="chess">
+          </div>
+
+
+          <div class="content-item">
+            <div class="content-item-image">
+            <img src="assets/images/avatar-nathan-peterson.webp" alt="">
+          </div>
+          <div class="content-item-text">
+            <div class="texts">
+            <p class="name"> Nathan Peterson  
+             <span class="para"> reacted to your recent post <span class="event"> 5 end-game strategies to increase your win rate </span> </span></p>
+            </div>  
+            <p class="time">  2 weeks ago</p>
+          </div>
+          </div>
+
+
+          <div class="content-item">
+            <div class="content-item-image">
+            <img src="assets/images/avatar-jacob-thompson.webp" alt="">
+          </div>
+          <div class="content-item-text">
+            <div class="texts">
+            <p class="name"> Anna Kim 
+             <span class="para"> left the group <span class="event"> Chess Club </span></span></p>
+            </div>  
+            <p class="time">  2 weeks ago</p>
+          </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

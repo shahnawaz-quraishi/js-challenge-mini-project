@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  
+  <title> Article preview component</title>
+
+  <style>
+
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 13px;
+    }
+    .heading{
+      font-size: 20px;  
+      color: hsl(217, 19%, 35%);
+    }
+    .para{
+      font-size: 13px;
+      color: hsl(214, 17%, 51%);
+    }
+    h4{
+      color: hsl(217, 19%, 35%);
+    }
+    .date{
+ 
+      color: hsl(212, 23%, 69%);
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: hsl(210, 46%, 95%);
+    }
+    .content{
+      width: 650px;
+      display: flex;
+    }
+    .content-left{
+      width: 65%;
+      order: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 25px;
+      background-color: white;
+    }
+    .profile-info{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .profile{
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .profile-img img{
+      width: 30px;
+      border-radius: 50%;
+    } 
+    .content-right{
+      width: 35%;
+      background-image: url(images/drawers.jpg);
+      background-size: cover;
+    }
+    .content-right img{
+      width: 100%;
+    }
+    .share-btn{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background-color: hsl(210, 46%, 95%);
+      cursor: pointer;   
+    }
+    .share-btn:hover{
+      background-color: hsl(217, 19%, 35%);
+    }
+   .share-btn:hover .share-icon{
+     fill: white;
+    }
+    .share-box{
+     background-color: hsl(217, 19%, 35%);
+     display: flex;
+     gap: 20px;
+     padding: 15px 30px;
+     border-radius: 14px;
+     position: absolute;
+     right: -120px;
+     top: -60px;
+     opacity: 0;
+     visibility: none;
+     overflow: hidden;
+    }
+    .active .share-box{
+      opacity: 1;
+      visibility: visible;
+      overflow: auto;
+    }
+    .share-text{
+      color: hsl(212, 23%, 69%);
+      text-transform: uppercase;
+      letter-spacing: 5px;   
+    }
+
+    @media(max-width:430px){
+
+      .content{
+        flex-direction: column;
+        padding: 20px;
+        width: 100%;
+      }
+      .content-right{
+      width: 100%;
+      height: 250px;
+    }
+    .content-left{
+      width: 100%;
+      order: 2; 
+    }
+   .active .share-box{
+      width: 110%;
+     background-color: hsl(217, 19%, 35%);
+     display: flex;
+     gap: 20px;
+     padding: 15px 30px;
+     border-radius: 14px;
+     position: absolute;
+     right: -20px;
+     top: -5px;
+     opacity: 1;
+     visibility: none;
+     overflow: hidden;
+    }
+    .share-btn{
+      z-index: 1;
+      background-color: hsl(214, 17%, 51%);
+    }
+    .share-icon{
+    fill: white;
+    background-color: hsl(217, 19%, 35%); 
+   }
+   .share-btn:hover{
+      background-color: hsl(210, 46%, 95%);
+    }
+   .share-btn:hover .share-icon{
+     fill: #6E8098;
+    }
+    }
+
+    @media(max-width:320px){
+      .container{
+        padding: 0;
+      }
+      .content{
+        padding: 0;
+      }
+      .share-box{
+       padding-inline: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+      <div class="content-left">
+         <h2 class="heading"> Shift the overall look and feel by adding these wonderful 
+          touches to furniture in your home</h2>
+         <p class="para">  Ever been in a room and felt like something was missing? Perhaps 
+          it felt slightly bare and uninviting. I’ve got some simple tips 
+          to help you make any room feel complete.</p>
+          <div class="profile-info">
+            <div class="profile">
+                <div class="profile-img">
+                  <img src="images/avatar-michelle.jpg" alt="">
+                </div>
+                <div class="profile-name">
+                  <h4>  Michelle Appleton</h4>
+                  <p class="date">28 Jun 2020</p>
+                </div>
+              </div>
+              <div class="share-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path class="share-icon" fill="#6E8098" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg>
+              </div>
+
+              <!-- share box -->
+              <div class="share-box">
+                <p class="share-text">Share</p>
+                <img src="images/icon-facebook.svg" alt="">
+                <img src="images/icon-twitter.svg" alt="">
+                <img src="images/icon-pinterest.svg" alt="">
+              </div>
+          </div>
+      </div>
+      <div class="content-right">
+         
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    const btn = document.querySelector('.share-btn');
+    const profileInfo = document.querySelector('.profile-info');
+    btn.addEventListener('click', () => {
+          profileInfo.classList.toggle('active');
+    })
+  </script>
+</body>
+</html>
