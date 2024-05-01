@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  
+  <title> Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: hsl(185, 41%, 84%);
+    }
+    .main-heading{
+      font-size: 40px;
+      color: hsl(172, 67%, 45%);
+    }
+    .left-heading{
+      font-size: 18px;
+      color: hsl(189, 41%, 97%);
+      font-weight: 500;
+    }
+    .heading{
+      font-size: 18px;
+      font-weight: 800;
+      color: hsl(183, 100%, 15%);
+      margin-bottom: 5px;
+    }
+    .para{
+      font-size: 16px;
+      color: hsl(184, 14%, 56%);
+      margin-top: 2px;
+    }
+    input{
+      width: 100%;
+      height: 40px;
+      font-size: 24px;
+      padding-left: 10px;
+      text-align: end;
+      background-color: hsl(189, 41%, 97%);
+      color: hsl(183, 100%, 15%);
+      border: none;
+      outline: none;
+      border-radius: 10px;  
+    }
+    input:focus{
+      border: 2px solid hsl(172, 67%, 45%);
+    }
+    input::placeholder{
+       color: hsl(184, 14%, 56%);
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 200px;
+    }
+    .content{
+      background-color: hsl(0, 0%, 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 40px;
+      gap: 20px;
+      border-radius: 15px;   
+    }
+    .left{
+     width: 50%;
+     display: flex;
+     flex-direction: column;
+     gap: 40px;
+    }
+    .tip-per{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .tip-btn{
+      width: 31%;
+      height: 40px;
+      font-size: 24px;
+      background-color: hsl(183, 100%, 15%);
+      color:  hsl(0, 0%, 100%);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .tip-btn:hover{
+      background-color: hsl(172, 67%, 45%);
+    }
+    .custom-tip{
+      border: none;
+      background-color: white;
+      color:  hsl(183, 100%, 15%);
+      border: none;
+      border-radius: 10px;
+    }
+    .custom-tip:hover{
+      background-color: white;  
+    }
+    .custom-tip::placeholder{
+      text-align: center;
+      color: hsl(183, 100%, 15%);
+    }
+    .right{
+      width: 50%;
+      background-color: hsl(183, 100%, 15%);
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px;
+      border-radius: 15px;
+    }
+    .tip-amount{
+      display: flex;
+      justify-content: space-between;
+    }
+    .total{
+      display: flex;
+      justify-content: space-between;
+    }
+    .reset-btn{
+      margin-top: 50px;
+      width: 100%;
+      padding: 10px 0;
+      font-size: 20px;
+      text-transform: uppercase;
+      background-color: hsla(188, 14%, 56%, 0.562);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+   
+    }
+    .reset-btn:hover{
+      background-color: hsl(172, 67%, 45%);
+    }
+
+    @media(max-width:430px){
+      .container{
+        padding: 0;
+        height: auto;
+      }
+      .content{
+        width: 100%;
+        padding: 20px;
+        flex-direction: column;
+        border: 1px solid black;
+      }
+      .left{
+        width: 100%; 
+      }
+      .tip-per{
+      width: 100%;
+      justify-content: center;
+    }
+      .tip-btn{
+      width: 45%;
+      height: 50px;
+      font-size: 28px;
+      text-align: center;
+    }
+      .right{
+        width: 100%;
+      }
+    }
+
+    @media(max-width:320px){
+ 
+    .right{
+      padding: 20px;
+    }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- <div class="logo">
+      <img src="images/logo.svg" alt="">
+    </div> -->
+    <div class="content">
+       <div class="left">
+             <div class="input-box">
+              <p class="heading">Bill</p>
+              <input type="number" placeholder="0" class="bill">
+             </div>
+             <div class="select-box">
+              <p class="heading">Select Tip %</p>
+              <div class="tip-per">
+                <button class="tip-btn" value="5">5%</button>
+                <button class="tip-btn" value="10">10%</button>
+                <button class="tip-btn" value="15">15%</button>
+                <button class="tip-btn" value="25">25%</button>
+                <button class="tip-btn" value="50">50%</button>
+                <input type="number" class="tip-btn custom-tip" placeholder="Custom">
+              </div>
+             </div>
+             <div class="num-of-people">
+              <p class="heading">Number of People</p>
+              <input type="number" class="people" placeholder="0">
+             </div>
+       </div>
+       <div class="right">
+           <div class="tip-amount">
+            <div class="tip-amount-info">
+              <p class="left-heading">Tip Amount</p>
+              <p class="para">/ person</p>
+            </div>
+            <h2 class="main-heading tip-amount-person">$0.00</h2>
+           </div>
+           <div class="total">
+            <div class="total-info">
+              <p class="left-heading">Total</p>
+              <p class="para">/ person</p>
+            </div>
+            <h2 class="main-heading total-money">$0.00</h2>
+           </div>
+           <button class="reset-btn">Reset</button>
+       </div>
+    </div>
+  </div>
+
+  <script>
+    let bill = document.querySelector('.bill');
+    const tipPer = document.querySelector('.tip-per');
+    const peopleCount = document.querySelector('.people');
+    const customTip = document.querySelector('.custom-tip')
+
+    let tipAmountPerson = document.querySelector('.tip-amount-person');
+    let totalAmountPerson = document.querySelector('.total-money');
+    const resetBtn = document.querySelector('.reset-btn');
+
+    // get tip value
+
+    tipPer.addEventListener('click', (e) =>{
+      let tipVal = Number(e.target.value);
+
+      peopleCount.addEventListener('keyup', (e) => {
+      let billVal = Number(bill.value);
+      let peopleVal = Number(e.target.value);
+
+
+      // tip calculate
+      let biilTip = Number(tipVal * billVal / 100);
+
+      // tip per person
+      let billTipPeople = biilTip / peopleVal;
+
+      // total amount
+      let totalAmount = `${billVal + biilTip}`;
+      console.log(totalAmount);
+
+      // total amount per person
+      let totalPerPerson = totalAmount / peopleVal;
+      console.log(totalPerPerson);
+
+      // show values
+
+      tipAmountPerson.innerText = billTipPeople;
+      totalAmountPerson.innerText = totalPerPerson;
+
+    })
+
+    })
+
+
+      resetBtn.addEventListener('click', () =>{
+        tipAmountPerson.innerHTML = "$0.00";
+        totalAmountPerson.innerHTML = "$0.00";
+      })
+
+  </script>
+</body>
+</html>

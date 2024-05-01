@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+
+  
+  <title> Base Apparel coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    .heading{
+      font-size: 52px;
+      letter-spacing: 15px;
+      word-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500; 
+    }
+    span{
+      color: hsl(0, 36%, 70%);
+    }
+    .para{
+      font-size: 16px;
+      line-height: 25px;
+      word-spacing: 3px;
+      color: hsl(0, 36%, 70%);
+    }
+    input{
+      width: 100%;
+      height: 40px;
+      border-radius: 20px;
+      padding-left: 20px;
+      outline: none;
+      border: 1px solid hsl(0, 6%, 24%); 
+    }
+    .btn{
+      background-color: hsl(0, 36%, 70%);
+      width: 100px;
+      height: 40px;
+      border-radius: 20px;
+      border: none;
+      position: relative;
+      left: -30px;
+    }
+    .btn:hover{
+      filter: brightness(120%);
+    }
+    .container{
+       width: 100%;
+       height: 100vh;  
+    }
+    .content{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+    }
+    .content-left{
+      width: 60%;
+    }
+    .content-left .logo{
+      padding: 50px 200px;
+    }
+    .content-left .main-text{
+      padding: 50px 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .email-field{
+     position: relative;
+      
+    }
+    .email-box{
+      display: flex;
+      margin-top: 30px;
+    }
+    .content-right{
+      width: 40%;
+      background-image: url(images/hero-desktop.jpg);
+      background-size: 100% 100%;
+    }
+    small{
+     position: absolute;
+     bottom: -20px;
+     left: 20px;
+     color: hsl(0, 36%, 70%);
+     visibility: hidden;
+    }
+    .error small{
+      visibility: visible;
+    }
+    .error input{
+      border-color: rgb(255, 0, 0);
+    }
+    .success small{
+      visibility: visible;
+      color: rgb(10, 250, 10);
+    }
+    .success input{
+      border-color: rgb(10, 250, 10);
+    }
+
+    @media(max-width:430px){
+      .content{
+        justify-content: center;
+        align-items: center;
+      }
+      .heading{
+        font-size: 40px;
+      }
+      .content{
+        flex-direction: column;
+      }
+      .content-left{
+        width: 100%;
+      }
+      .content-right{
+        width: 100%;
+        height: 300px;
+        background-image: url(images/hero-mobile.jpg);
+        order: -2;
+      
+      }
+      .content-left .logo{
+      padding: 30px 20px;
+      order: -1;
+    }
+    .content-left .main-text{
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      text-align: center;
+    }
+    .email-box{
+      width: 100%;
+      margin-top: 20px;
+    
+    }
+   input{
+    width: 300px;
+   }
+    }
+
+    @media(max-width:375px){
+      input{
+    width: 250px;
+   }
+    }
+
+    @media(max-width:360px){
+      .container{
+        height: auto;
+      }
+      .content{
+        height: auto;
+      }
+      .content-right{
+        height: 300px;
+      }
+      input{
+    width: 200px;
+   }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+      <div class="content-left">
+         <div class="logo">
+          <img src="images/logo.svg" alt="">
+         </div>
+         <div class="main-text">
+          <h1 class="heading"><span>We're</span> coming soon</h1>
+          <p class="para">  Hello fellow shoppers! We're currently building our new fashion store. 
+            Add your email below to stay up-to-date with announcements and our launch deals.</p>
+          <div class="email-field">
+            <form class="email-box">
+            <input type="email" placeholder="Email Address" class="email">
+            <button class="btn" type="submit"><img src="images/icon-arrow.svg" alt=""></button>
+            <small>Please enter a valid email</small>
+          </form>
+            
+          </div>
+
+         </div>
+      </div>
+      <div class="content-right">
+
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    const emailInput = document.querySelector('.email');
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      validate();
+    })
+
+    const setError = (message) =>{
+      const emailBox = document.querySelector('.email-box');
+      const small = emailBox.querySelector('small');
+
+      emailBox.classList.add('error');
+      emailBox.classList.remove('success');
+      small.innerText = message;
+    }
+
+    const setSuccess = (message) =>{
+      const emailBox = document.querySelector('.email-box');
+      const small = emailBox.querySelector('small');
+
+      emailBox.classList.add('success');
+      emailBox.classList.remove('error');
+      small.innerText = message;
+    }
+
+    const validate = () =>{
+     const emailVal = emailInput.value;
+
+     if(emailVal === ""){
+       setError("error")
+     }else{
+      setSuccess("Thanks for Subscribe")
+     }
+      
+    }
+  </script>
+</body>
+</html>
